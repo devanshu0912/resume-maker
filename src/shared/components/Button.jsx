@@ -8,11 +8,13 @@ const variants = {
 export default function Button({
   children,
   variant = "primary",
+  type = "button",   // ✅ IMPORTANT
   className = "",
   ...props
 }) {
   return (
     <button
+      type={type}     // ✅ IMPORTANT
       className={`px-4 py-2 rounded-md font-medium transition ${variants[variant]} ${className}`}
       {...props}
     >

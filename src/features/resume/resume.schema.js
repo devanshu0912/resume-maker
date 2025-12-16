@@ -1,4 +1,3 @@
-// src/features/resume/resume.schema.js
 
 export const initialResume = {
   personal: {
