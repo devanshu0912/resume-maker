@@ -4,7 +4,7 @@ import { useResume } from "./context/ResumeContext";
 
 export default function ResumePreview() {
   const { resume } = useResume();
-  const { personal, skills, education } = resume;
+  const { personal, skills, education, projects } = resume;
 
   return (
     <Card>
@@ -64,6 +64,38 @@ export default function ResumePreview() {
           </div>
         </div>
       )}
+      {/* ===== PROJECTS ===== */}
+{projects?.length > 0 && (
+  <div className="mt-6">
+    <h3 className="font-semibold mb-2">Projects</h3>
+
+    <div className="space-y-4">
+      {projects.map((project, pIndex) => (
+        <div key={pIndex}>
+          <p className="font-medium">
+            {project.name || "Project Name"}
+          </p>
+
+          {(project.liveLink || project.codeLink) && (
+            <p className="text-sm text-gray-600">
+              {project.liveLink && "Live"}{" "}
+              {project.codeLink && "| Code"}
+            </p>
+          )}
+
+          <ul className="list-disc list-inside text-sm mt-1 space-y-1">
+            {project.bullets.map((bullet, bIndex) => (
+              <li key={bIndex}>
+                {bullet || "Project description"}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
     </Card>
   );
 }

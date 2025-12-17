@@ -9,4 +9,13 @@ export const initialResume = {
   skills: [],
 
   education: [],
+  projects: [
+  {
+    name: "",
+    liveLink: "",
+    codeLink: "",
+    bullets: [""],
+  },
+],
+
 };
